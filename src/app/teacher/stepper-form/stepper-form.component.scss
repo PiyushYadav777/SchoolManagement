@@ -1,0 +1,136 @@
+// .form-row {
+//     display: flex;
+//     flex-wrap: wrap;
+//     gap: 16px;
+//     margin-bottom: 16px;
+//   }
+  
+//   .form-field {
+//     flex: 1;
+//   }
+  
+//   .profile-image-preview {
+//     max-width: 100%;
+//     height: auto;
+//     margin-top: 16px;
+//   }
+  
+
+
+// Define primary color and other color variables
+$primary-color: #3f51b5;
+$accent-color: #ff4081;
+$background-color: #f5f5f5;
+$card-background: #ffffff;
+$button-hover-color: darken($primary-color, 10%);
+$input-border-color: #ccc;
+$input-focus-border-color: $primary-color;
+
+// Basic Styling for the Form
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: $background-color;
+
+  mat-card {
+    width: 100%;
+    max-width: 800px;
+    background-color: $card-background;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
+    mat-card-header {
+      background-color: $primary-color;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    mat-card-title {
+      font-size: 1.5rem;
+    }
+
+    mat-card-content {
+      padding: 1.5rem;
+    }
+  }
+
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-field {
+    width: 100%;
+  }
+
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 1rem;
+
+    .mat-form-field-wrapper {
+      background-color: #ffffff;
+      border: 1px solid $input-border-color;
+      border-radius: 4px;
+    }
+
+    .mat-form-field-appearance-fill .mat-form-field-flex {
+      padding: 0.5rem;
+    }
+
+    .mat-form-field-label {
+      font-weight: bold;
+    }
+
+    mat-input {
+      padding: 0.5rem;
+    }
+
+    mat-error {
+      font-size: 0.75rem;
+      color: $accent-color;
+    }
+  }
+
+  mat-horizontal-stepper {
+    margin: 1rem 0;
+
+    mat-step {
+      padding: 1rem;
+    }
+
+    .mat-step-label {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+  }
+
+  button {
+    margin: 1rem 0.5rem;
+    font-weight: bold;
+
+    &:hover {
+      background-color: $button-hover-color;
+    }
+  }
+
+  .profile-image-preview {
+    max-width: 200px;
+    max-height: 200px;
+    margin-top: 1rem;
+    border: 1px solid $input-border-color;
+    border-radius: 4px;
+    object-fit: cover;
+  }
+
+  .mat-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+}
+
+  

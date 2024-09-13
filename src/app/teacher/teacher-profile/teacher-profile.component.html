@@ -1,0 +1,73 @@
+<div *ngIf="teacher" class="profile-container">
+    <div class="profile-header">
+      <img *ngIf="teacher.image" [src]="teacher.image" alt="Profile Image" class="profile-image" />
+      <h2>About me</h2>
+      <!-- <h2>{{ teacher.name }}'s Profile</h2> -->
+    </div>
+    <div *ngIf="!isEditing" class="profile-info">
+      <p><strong>Name:</strong> {{ teacher.name }}</p>
+      <p><strong>Email:</strong> {{ teacher.email }}</p>
+      <p><strong>Contact Number:</strong> {{ teacher.contactNo }}</p>
+      <p><strong>Date of Birth:</strong> {{ teacher.dob | date }}</p>
+      <p><strong>Age:</strong> {{ teacher.age }}</p>
+      <p><strong>Gender:</strong> {{ teacher.gender }}</p>
+      <p><strong>Qualifications:</strong> {{ teacher.qualifications }}</p>
+      <p><strong>Address:</strong> {{ teacher.address }}</p>
+      <p><strong>Assigned Class:</strong> {{ teacher.assignedClass }}</p>
+      <p><strong>Assigned Subject:</strong> {{ teacher.assignedSubject }}</p>
+      <p><strong>Number of Students:</strong> {{ studentCount }}</p>
+      <button mat-raised-button color="primary" (click)="editProfile()">Edit</button>
+    </div>
+
+    <div *ngIf="isEditing" class="profile-edit-form">
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput [(ngModel)]="teacher.name" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="teacher.email" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Contact Number</mat-label>
+        <input matInput [(ngModel)]="teacher.contactNo"/>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Date of Birth</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="teacher.dob">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Age</mat-label>
+        <input matInput [(ngModel)]="teacher.age" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Gender</mat-label>
+        <input matInput [(ngModel)]="teacher.gender" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Qualifications</mat-label>
+        <input matInput [(ngModel)]="teacher.qualifications" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Contact Number</mat-label>
+        <input matInput [(ngModel)]="teacher.contactNo" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Address</mat-label>
+        <input matInput [(ngModel)]="teacher.address" />
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" (click)="saveProfile()">Save</button>
+      <button mat-stroked-button color="warn" (click)="cancelEdit()">Cancel</button>
+    </div>
+  </div>
+
+
+  <div *ngIf="!teacher" class="loading-message">
+    <p>Loading profile...</p>
+  </div>
+  

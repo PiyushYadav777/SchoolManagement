@@ -1,0 +1,135 @@
+
+// Container for the profile details
+.profile-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  // Profile header section
+  .profile-header {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  
+    h2 {
+      margin: 0;
+      font-size: 24px;
+      color: #333;
+    }
+  
+    .profile-image {
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      margin-right: 20px;
+    }
+  }
+  
+  // General information styling
+  .profile-info {
+    p {
+      margin: 10px 0;
+      font-size: 16px;
+      color: #555;
+  
+      strong {
+        font-weight: bold;
+        color: #333;
+      }
+    }
+  }
+  
+  // Loading message styling
+  .loading-message {
+    text-align: center;
+    font-size: 18px;
+    color: #999;
+  }
+  
+  // Responsive design
+  @media (max-width: 768px) {
+    .profile-container {
+      padding: 15px;
+    }
+  
+    .profile-header {
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: center;
+  
+      .profile-image {
+        margin-bottom: 15px;
+      }
+  
+      h2 {
+        font-size: 20px;
+      }
+    }
+  
+    .profile-info {
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+  
+
+
+.profile-edit-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px; // Adjust based on your layout needs
+  margin: 0 auto; // Center the form horizontally
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fafafa;
+
+  mat-form-field {
+    margin-bottom: 5px;
+  }
+
+  button {
+    margin: 8px 0; // Space between buttons
+    width: 100%; // Full width for buttons
+  }
+
+  .mat-form-field {
+    width: 100%; // Full width for form fields
+    max-height: 80px;
+  }
+  
+  // Override Angular Material default styles if needed
+  .mat-form-field .mat-form-field-label {
+    color: #333;
+    max-height: 10px;
+  }
+
+  .mat-form-field-underline {
+    background-color: #3f51b5; // Customize underline color
+  }
+  
+  // Style for save and cancel buttons
+  button.mat-raised-button {
+    margin-bottom: 16px;
+    font-weight: bold;
+  }
+
+  button.mat-stroked-button {
+    border-width: 2px;
+  }
+  
+  // Optional: Style for input fields
+  mat-form-field input {
+    font-size: 16px;
+    padding: 8px;
+  }
+}
+

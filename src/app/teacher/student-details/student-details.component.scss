@@ -1,0 +1,31 @@
+/* styles for the dialog content */
+.dialog-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Space between image and text */
+  
+    .profile-image {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover; /* Ensure image fits within circle */
+      border: 2px solid #007bff; /* Optional: Add a border */
+    }
+  
+    .student-details {
+      p {
+        margin: 0.5rem 0;
+        font-size: 0.875rem;
+      }
+  
+      strong {
+        font-weight: bold;
+      }
+    }
+  }
+  
+  mat-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  

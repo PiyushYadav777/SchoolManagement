@@ -1,0 +1,128 @@
+// .dashboard {
+//     padding: 20px;
+//     background-color: #f4f4f9;
+//   }
+  
+//   .stats {
+//     display: flex;
+//     flex-wrap: wrap;
+//     gap: 20px;
+//     justify-content: space-around;
+//   }
+  
+//   .stat-card {
+//     width: 250px; /* Increased width for bigger boxes */
+//     text-align: center;
+//     background: white;
+//     border-radius: 12px;
+//     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+//     padding: 20px;
+//     color: white;
+//   }
+  
+//   .mat-card-header {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     padding: 20px;
+//     border-radius: 12px 12px 0 0; /* Rounded corners on the top */
+//   }
+  
+//   .mat-card-content {
+//     font-size: 24px;
+//     font-weight: bold;
+//     margin: 0;
+//     padding: 20px;
+//   }
+  
+//   .total-students { background-color: #4caf50; } /* Green */
+//   .total-teachers { background-color: #2196f3; } /* Blue */
+//   .total-subjects { background-color: #ff9800; } /* Orange */
+//   .total-classes { background-color: #f44336; } /* Red */
+  
+//   mat-card-header mat-icon {
+//     font-size: 40px; /* Larger icon */
+//     margin-right: 8px;
+//   }
+  
+//   mat-card-title {
+//     font-size: 22px; /* Larger title text */
+//     font-weight: 500;
+//   }
+
+
+
+.dashboard {
+  padding: 20px;
+  background-color: #f4f4f9;
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.school-logo {
+  width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.school-name {
+  font-size: 36px;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-around;
+}
+
+.stat-card {
+  width: 250px;
+  text-align: center;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  color: #333; /* Updated to match content color */
+}
+
+.mat-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 12px 12px 0 0;
+}
+
+.mat-card-content {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  padding: 20px;
+}
+
+.total-students { background-color: #4caf50; } /* Green */
+.total-teachers { background-color: #2196f3; } /* Blue */
+.total-subjects { background-color: #ff9800; } /* Orange */
+.total-classes { background-color: #f44336; } /* Red */
+
+mat-card-header mat-icon {
+  font-size: 40px;
+  margin-right: 8px;
+}
+
+mat-card-title {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+  

@@ -1,0 +1,148 @@
+<div *ngIf="isLoading">
+    <mat-spinner></mat-spinner>
+  </div>
+  
+  <form>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Student Registration Form</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-horizontal-stepper [linear]="isLinear" #stepper>
+          <!-- Step 1: Personal Information -->
+          <mat-step [stepControl]="studentFormStep1" label="Personal Information">
+            <div [formGroup]="studentFormStep1" class="form-row">
+              <mat-form-field appearance="fill" class="form-field">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name">
+                <mat-error *ngIf="studentFormStep1.get('name')?.hasError('required')">Name is required</mat-error>
+                <mat-error *ngIf="studentFormStep1.get('name')?.hasError('minlength')">Name must be at least 3 characters long</mat-error>
+              </mat-form-field>
+  
+              <mat-form-field appearance="fill" class="form-field">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email">
+                <mat-error *ngIf="studentFormStep1.get('email')?.hasError('required')">Email is required</mat-error>
+                <mat-error *ngIf="studentFormStep1.get('email')?.hasError('email')">Enter a valid email</mat-error>
+              </mat-form-field>
+            </div>
+  
+            <div [formGroup]="studentFormStep1" class="form-row">
+              <mat-form-field appearance="fill" class="form-field">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password">
+                <mat-error *ngIf="studentFormStep1.get('password')?.hasError('required')">Password is required</mat-error>
+                <mat-error *ngIf="studentFormStep1.get('password')?.hasError('minlength')">Password must be at least 6 characters long</mat-error>
+              </mat-form-field>
+  
+              <mat-form-field appearance="fill" class="form-field">
+                <mat-label>Date of Birth</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="dob" required>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="studentFormStep1.get('dob')?.hasError('required')">Date of Birth is required</mat-error>
+              </mat-form-field>
+            </div>
+  
+            <button mat-raised-button color="primary" (click)="stepper.next()">Next</button>
+          </mat-step>
+  
+          <!-- Step 2: Additional Information -->
+          <mat-step [stepControl]="studentFormStep2" label="Additional Information">
+            <div [formGroup]="studentFormStep2" class="form-row">
+              <mat-form-field appearance="fill" class="form-field">
+                <mat-label>Age</mat-label>
+                <input matInput type="number" formControlName="age">
+                <mat-error *ngIf="studentFormStep2.get('age')?.hasError('required')">Age is required</mat-error>
+                <mat-error *ngIf="studentFormStep2.get('age')?.hasError('min')">Age must be at least 1</mat-error>
+                <mat-error *ngIf="studentFormStep2.get('age')?.hasError('max')">Age cannot be more than 120</mat-error>
+              </mat-form-field>
+  
+              <mat-form-field appearance="fill" class="form-field">
+                <mat-label>Gender</mat-label>
+                <mat-select formControlName="gender">
+                  <mat-option value="boy">Boy</mat-option>
+                  <mat-option value="girl">Girl</mat-option>
+                  <mat-option value="other">Other</mat-option>
+                </mat-select>
+                <mat-error *ngIf="studentFormStep2.get('gender')?.hasError('required')">Gender is required</mat-error>
+              </mat-form-field>
+            </div>
+  
+            <div [formGroup]="studentFormStep2" class="form-row">
+              <mat-form-field appearance="fill" class="form-field">
+                <mat-label>Class</mat-label>
+                <mat-select formControlName="class">
+                  <mat-option *ngFor="let class of classOptions" [value]="class">{{ class }}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="studentFormStep2.get('class')?.hasError('required')">Class is required</mat-error>
+              </mat-form-field>
+  
+              <mat-form-field appearance="fill" class="form-field">
+                <mat-label>Enrollment Number</mat-label>
+                <input matInput formControlName="enrollmentNumber">
+                <mat-error *ngIf="studentFormStep2.get('enrollmentNumber')?.hasError('required')">Enrollment Number is required</mat-error>
+              </mat-form-field>
+            </div>
+  
+            <button mat-raised-button color="primary" (click)="stepper.previous()">Back</button>
+            <button mat-raised-button color="primary" (click)="stepper.next()">Next</button>
+          </mat-step>
+  
+          <!-- Step 3: Contact Details -->
+          <mat-step [stepControl]="studentFormStep3" label="Contact Details">
+            <div [formGroup]="studentFormStep3" class="form-row">
+              <mat-form-field appearance="fill" class="form-field">
+                <mat-label>Contact No</mat-label>
+                <input matInput type="number" formControlName="contactNo">
+                <mat-error *ngIf="studentFormStep3.get('contactNo')?.hasError('required')">Contact No is required</mat-error>
+                <mat-error *ngIf="studentFormStep3.get('contactNo')?.hasError('pattern')">Contact No must be exactly 10 digits.</mat-error>
+              </mat-form-field>
+  
+              <mat-form-field appearance="fill" class="form-field">
+                <mat-label>Address</mat-label>
+                <input matInput formControlName="address">
+                <mat-error *ngIf="studentFormStep3.get('address')?.hasError('required')">Address is required</mat-error>
+              </mat-form-field>
+            </div>
+  
+            <div [formGroup]="studentFormStep3" class="form-row">
+              <mat-form-field appearance="fill" class="form-field">
+                <mat-label>Fees</mat-label>
+                <input matInput type="number" formControlName="fees">
+                <mat-error *ngIf="studentFormStep3.get('fees')?.hasError('required')">Fees are required</mat-error>
+                <mat-error *ngIf="studentFormStep3.get('fees')?.hasError('min')">Fees must be a non-negative value</mat-error>
+              </mat-form-field>
+  
+              <mat-form-field appearance="fill" class="form-field">
+                <mat-label>Status</mat-label>
+                <mat-select formControlName="status">
+                  <mat-option value="paid">Paid</mat-option>
+                  <mat-option value="unpaid">Unpaid</mat-option>
+                </mat-select>
+                <mat-error *ngIf="studentFormStep3.get('status')?.hasError('required')">Status is required</mat-error>
+              </mat-form-field>
+            </div>
+  
+            <button mat-raised-button color="primary" (click)="stepper.previous()">Back</button>
+            <button mat-raised-button color="primary" (click)="stepper.next()">Next</button>
+          </mat-step>
+  
+          <!-- Step 4: Profile Image -->
+          <mat-step label="Profile Image">
+            <div>
+              <mat-label for="profileImage">Profile Image</mat-label>
+              <input id="profileImage" type="file" (change)="onFileChange($event)">
+            </div>
+            <div *ngIf="previewImage">
+              <img [src]="previewImage" alt="Profile Image Preview" class="profile-image-preview">
+            </div>
+  
+            <button mat-raised-button color="primary" (click)="stepper.previous()">Back</button>
+            <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+          </mat-step>
+        </mat-horizontal-stepper>
+      </mat-card-content>
+    </mat-card>
+  </form>
+  
