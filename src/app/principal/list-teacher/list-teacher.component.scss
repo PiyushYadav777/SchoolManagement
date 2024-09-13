@@ -1,0 +1,44 @@
+mat-card {
+    margin: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th.mat-header-cell, td.mat-cell {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th.mat-header-cell {
+    background-color: #f1f1f1;
+  }
+
+  .profile-image {
+    width: 50px; /* Adjust size as needed */
+    height: auto;
+    border-radius: 4px;
+  }
+  
+  .container {
+    margin: 16px;
+  }
+  
+  .filter-form {
+    margin-top: 16px;
+  }
+  
+  .filter-button {
+    position: absolute;
+    // top: 16px;
+    right: 16px;
+    margin-right: 22px;
+  }
+  
+  mat-form-field {
+    margin-right: 16px;
+  }
+  

@@ -1,0 +1,106 @@
+// /* styles for the dialog content */
+// .dialog-content {
+//     display: flex;
+//     align-items: center;
+//     gap: 1rem; /* Space between image and text */
+  
+//     .profile-image {
+//       width: 80px;
+//       height: 80px;
+//       border-radius: 50%;
+//       object-fit: cover; /* Ensure image fits within circle */
+//       border: 2px solid #007bff; /* Optional: Add a border */
+//     }
+  
+//     .teacher-details {
+//       p {
+//         margin: 0.5rem 0;
+//         font-size: 0.875rem;
+//       }
+  
+//       strong {
+//         font-weight: bold;
+//       }
+//     }
+//   }
+  
+//   mat-dialog-actions {
+//     display: flex;
+//     justify-content: flex-end;
+//   }
+  
+
+  
+// Style for the dialog container
+mat-dialog-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+// Style for the dialog title
+h2[mat-dialog-title] {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+// Style for the dialog content container
+.dialog-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+// Style for the profile image
+.profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 16px;
+}
+
+// Style for student details section
+.teacher-details {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+
+  p {
+      margin: 8px 0;
+      font-size: 16px;
+
+      strong {
+          color: #141414;
+      }
+  }
+}
+
+// Style for the dialog actions
+mat-dialog-actions {
+  padding: 16px;
+  display: flex;
+  justify-content: flex-end;
+
+  button[mat-button] {
+      background-color: #007bff;
+      color: white;
+      &:hover {
+          background-color: #0056b3;
+      }
+  }
+}
+
+  

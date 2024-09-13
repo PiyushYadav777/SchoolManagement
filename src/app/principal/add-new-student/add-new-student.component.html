@@ -1,0 +1,141 @@
+<div *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+</div>
+
+<form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Student Registration Form</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+      <!-- Group fields into rows for a more compact layout -->
+      <div class="form-row">
+        <!-- Name Field -->
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name">
+          <mat-error *ngIf="studentForm.get('name')?.hasError('required')">Name is required</mat-error>
+          <mat-error *ngIf="studentForm.get('name')?.hasError('minlength')">Name must be at least 3 characters long</mat-error>
+        </mat-form-field>
+
+        <!-- Email Field -->
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email">
+          <mat-error *ngIf="studentForm.get('email')?.hasError('required')">Email is required</mat-error>
+          <mat-error *ngIf="studentForm.get('email')?.hasError('email')">Enter a valid email</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <!-- Password Field -->
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" formControlName="password">
+          <mat-error *ngIf="studentForm.get('password')?.hasError('required')">Password is required</mat-error>
+          <mat-error *ngIf="studentForm.get('password')?.hasError('minlength')">Password must be at least 6 characters long</mat-error>
+        </mat-form-field>
+
+        <!-- DOB Field -->
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Date of Birth</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="dob" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="studentForm.get('dob')?.hasError('required')">Date of Birth is required</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <!-- Age Field -->
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Age</mat-label>
+          <input matInput type="number" formControlName="age">
+          <mat-error *ngIf="studentForm.get('age')?.hasError('required')">Age is required</mat-error>
+          <mat-error *ngIf="studentForm.get('age')?.hasError('min')">Age must be at least 1</mat-error>
+          <mat-error *ngIf="studentForm.get('age')?.hasError('max')">Age cannot be more than 120</mat-error>
+        </mat-form-field>
+
+        <!-- Gender Field -->
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Gender</mat-label>
+          <mat-select formControlName="gender">
+            <mat-option value="boy">Boy</mat-option>
+            <mat-option value="girl">Girl</mat-option>
+            <mat-option value="other">Other</mat-option>
+          </mat-select>
+          <mat-error *ngIf="studentForm.get('gender')?.hasError('required')">Gender is required</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <!-- Class Field -->
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Class</mat-label>
+          <mat-select formControlName="class">
+            <mat-option *ngFor="let class of classOptions" [value]="class">{{ class }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="studentForm.get('class')?.hasError('required')">Class is required</mat-error>
+        </mat-form-field>
+
+        <!-- Enrollment Number Field -->
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Enrollment Number</mat-label>
+          <input matInput formControlName="enrollmentNumber">
+          <mat-error *ngIf="studentForm.get('enrollmentNumber')?.hasError('required')">Enrollment Number is required</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <!-- Contact Number Field -->
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Contact No</mat-label>
+          <input matInput type="number" formControlName="contactNo">
+          <mat-error *ngIf="studentForm.get('contactNo')?.hasError('required')">Contact No is required</mat-error>
+        <mat-error *ngIf="studentForm.get('contactNo')?.hasError('pattern')">Contact No must be exactly 10
+          digits.</mat-error>
+        </mat-form-field>
+
+        <!-- Address Field -->
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Address</mat-label>
+          <input matInput formControlName="address">
+          <mat-error *ngIf="studentForm.get('address')?.hasError('required')">Address is required</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <!-- Fees Field -->
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Fees</mat-label>
+          <input matInput type="number" formControlName="fees">
+          <mat-error *ngIf="studentForm.get('fees')?.hasError('required')">Fees are required</mat-error>
+          <mat-error *ngIf="studentForm.get('fees')?.hasError('min')">Fees must be a non-negative value</mat-error>
+        </mat-form-field>
+
+        <!-- Status Field -->
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Status</mat-label>
+          <mat-select formControlName="status">
+            <mat-option value="paid">Paid</mat-option>
+            <mat-option value="unpaid">Unpaid</mat-option>
+          </mat-select>
+          <mat-error *ngIf="studentForm.get('status')?.hasError('required')">Status is required</mat-error>
+        </mat-form-field>
+      </div>
+
+      <!-- Image Field -->
+      <div>
+        <mat-label for="profileImage">Profile Image</mat-label>
+        <input id="profileImage" type="file" (change)="onFileChange($event)">
+      </div>
+      <div *ngIf="previewImage">
+        <img [src]="previewImage" alt="Profile Image Preview" class="profile-image-preview">
+      </div>
+
+      <!-- Submit Button -->
+      <button mat-raised-button color="primary" type="submit">Add Student</button>
+    </mat-card-content>
+  </mat-card>
+</form>

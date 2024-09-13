@@ -1,0 +1,123 @@
+  <form [formGroup]="teacherForm" (ngSubmit)="onSubmit()">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Edit Teacher Details</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="form-grid">
+        <!-- Name Field -->
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name">
+          <mat-error *ngIf="teacherForm.get('name')?.hasError('required')">Name is required</mat-error>
+          <mat-error *ngIf="teacherForm.get('name')?.hasError('minlength')">Name must be at least 3 characters
+            long</mat-error>
+        </mat-form-field>
+  
+        <!-- Email Field -->
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email">
+          <mat-error *ngIf="teacherForm.get('email')?.hasError('required')">Email is required</mat-error>
+          <mat-error *ngIf="teacherForm.get('email')?.hasError('email')">Enter a valid email</mat-error>
+        </mat-form-field>
+  
+        <!-- Password Field -->
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" formControlName="password">
+          <mat-error *ngIf="teacherForm.get('password')?.hasError('required')">Password is required</mat-error>
+          <mat-error *ngIf="teacherForm.get('password')?.hasError('minlength')">Password must be at least 6 characters
+            long</mat-error>
+        </mat-form-field>
+  
+  
+        <!-- DOB Field -->
+        <mat-form-field appearance="fill">
+          <mat-label>Date of Birth</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="dob" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="teacherForm.get('dob')?.hasError('required')">
+            Date of Birth is required.
+          </mat-error>
+        </mat-form-field>
+  
+  
+        <!-- Age Field -->
+        <mat-form-field appearance="fill">
+          <mat-label>Age</mat-label>
+          <input matInput type="number" formControlName="age">
+          <mat-error *ngIf="teacherForm.get('age')?.hasError('required')">Age is required</mat-error>
+          <mat-error *ngIf="teacherForm.get('age')?.hasError('min')">Age must be at least 20</mat-error>
+          <mat-error *ngIf="teacherForm.get('age')?.hasError('max')">Age cannot be more than 60</mat-error>
+        </mat-form-field>
+  
+        <!-- Gender Field -->
+        <mat-form-field appearance="fill">
+          <mat-label>Gender</mat-label>
+          <mat-select formControlName="gender">
+            <mat-option value="male">Male</mat-option>
+            <mat-option value="female">Female</mat-option>
+            <mat-option value="other">Other</mat-option>
+          </mat-select>
+          <mat-error *ngIf="teacherForm.get('gender')?.hasError('required')">Gender is required</mat-error>
+        </mat-form-field>
+  
+        <!-- Qualifications Field -->
+        <mat-form-field appearance="fill">
+          <mat-label>Qualifications</mat-label>
+          <input matInput formControlName="qualifications">
+          <mat-error *ngIf="teacherForm.get('qualifications')?.hasError('required')">Qualifications are
+            required</mat-error>
+        </mat-form-field>
+  
+        <!-- Assigned Class Field -->
+        <mat-form-field appearance="fill">
+          <mat-label>Assigned Class</mat-label>
+          <mat-select formControlName="assignedClass" multiple>
+            <mat-option *ngFor="let class of classOptions" [value]="class">{{ class }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="teacherForm.get('assignedClass')?.hasError('required')">Atleast One class shoule be Assigned.</mat-error>
+        </mat-form-field>
+  
+        <!-- Assigned Subject Field -->
+        <mat-form-field appearance="fill">
+          <mat-label>Assigned Subject</mat-label>
+          <mat-select formControlName="assignedSubject">
+            <mat-option *ngFor="let subject of subjectOptions" [value]="subject">{{ subject }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="teacherForm.get('assignedSubject')?.hasError('required')">Assigned Subject is
+            required</mat-error>
+        </mat-form-field>
+  
+        <!-- Contact Number Field -->
+        <mat-form-field appearance="fill">
+          <mat-label>Contact No</mat-label>
+          <input matInput type="number" formControlName="contactNo">
+          <mat-error *ngIf="teacherForm.get('contactNo')?.hasError('required')">Contact No is required</mat-error>
+          <mat-error *ngIf="teacherForm.get('contactNo')?.hasError('pattern')">Contact No must be exactly 10
+            digits.</mat-error>
+        </mat-form-field>
+  
+        <!-- Address Field -->
+        <mat-form-field appearance="fill">
+          <mat-label>Address</mat-label>
+          <input matInput formControlName="address">
+          <mat-error *ngIf="teacherForm.get('address')?.hasError('required')">Address is required</mat-error>
+        </mat-form-field>
+  
+        <!-- Image Field -->
+        <div>
+          <mat-label for="profileImage">Profile Image</mat-label>
+          <input id="profileImage" type="file" (change)="onFileChange($event)">
+        </div>
+        <div *ngIf="previewImage">
+          <img [src]="previewImage" alt="Profile Image Preview" class="profile-image-preview">
+        </div>
+      </div>
+        <!-- Submit Button -->
+        <button mat-raised-button color="primary" type="submit">Update </button>
+      </mat-card-content>
+    </mat-card>
+  </form>

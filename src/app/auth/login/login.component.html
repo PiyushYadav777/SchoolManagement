@@ -1,0 +1,83 @@
+<!-- <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username">
+      <mat-error *ngIf="loginForm.get('username')?.hasError('required')">
+        Username is required
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password">
+      <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+        Password is required
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>User Type</mat-label>
+      <mat-select formControlName="userType">
+        <mat-option *ngFor="let type of userTypes" [value]="type">{{ type }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="loginForm.get('userType')?.hasError('required')">
+        User Type is required
+      </mat-error>
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" type="submit">Login</button>
+  
+    <mat-error *ngIf="errorMessage">{{ errorMessage }}</mat-error>
+  </form>
+   -->
+
+<section class="gradient-form">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="card rounded-3 text-black">
+          <div class="card-body p-md-5 mx-md-4">
+            <div class="text-center">
+              <img src="assets/vecteezy_school-logo-design-template-vector_8040272.jpg" alt="logo" class="logo-img">
+            </div>
+
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <h2>Please login to your account</h2>
+              <mat-form-field appearance="fill" class="form-outline">
+                <mat-label>Username</mat-label>
+                <input matInput formControlName="username">
+                <mat-error *ngIf="loginForm.get('username')?.hasError('required')">
+                  Username is required
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill" class="form-outline">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password">
+                <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+                  Password is required
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>User Type</mat-label>
+                <mat-select formControlName="userType">
+                  <mat-option *ngFor="let type of userTypes" [value]="type">{{ type }}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="loginForm.get('userType')?.hasError('required')">
+                  User Type is required
+                </mat-error>
+              </mat-form-field>
+              <div class="text-center pt-1 mb-5 pb-1">
+                <button mat-raised-button color="primary" type="submit" class="btn-login">Log in</button>
+                <mat-error *ngIf="errorMessage">{{ errorMessage }}</mat-error>
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

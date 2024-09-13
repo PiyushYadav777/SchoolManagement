@@ -1,0 +1,24 @@
+
+<h2 mat-dialog-title>Teacher Details</h2>
+<mat-dialog-content>
+    <div class="dialog-content">
+        <img *ngIf="data.teacher.image" [src]="data.teacher.image" alt="Profile Image" class="profile-image" />
+        <div class="teacher-details">
+            <p><strong>Name:</strong> {{ data.teacher.name }}</p>
+            <p><strong>Email:</strong> {{ data.teacher.email }}</p>
+            <p><strong>Date of Birth:</strong> {{ data.teacher.dob | date }}</p>
+            <p><strong>Age:</strong> {{ data.teacher.age }}</p>
+            <p><strong>Gender:</strong> {{ data.teacher.gender }}</p>
+            <p><strong>Qualifications:</strong> {{ data.teacher.qualifications }}</p>
+            <p><strong>Contact Number:</strong> {{ data.teacher.contactNo }}</p>
+            <p><strong>Address:</strong> {{ data.teacher.address }}</p>
+            <p><strong>Assigned Class:</strong> {{ data.teacher.assignedClass }}</p>
+            <p><strong>Assigned Subject:</strong> {{ data.teacher.assignedSubject }}</p>
+       
+            <p><strong>Number of Students:</strong> {{ studentCount }}</p>  </div>
+    </div>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

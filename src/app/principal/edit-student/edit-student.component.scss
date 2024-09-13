@@ -1,0 +1,122 @@
+.profile-image-preview {
+    max-width: 100px;
+    max-height: 100px;
+    display: block;
+    margin-top: 10px;
+  }
+  
+  .profile-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+  }
+
+// Color palette
+$card-bg-color: #ffffff;
+$card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+$button-bg-color: #007bff;
+$button-bg-hover-color: #0056b3;
+$button-text-color: #ffffff;
+$input-bg-color: #f9f9f9;
+$input-border-color: #ced4da;
+$error-text-color: #dc3545;
+$success-bg-color: #e9ecef;
+$success-text-color: #495057;
+$profile-image-border: 2px solid #007bff;
+$profile-image-size: 100px;
+
+// Mat Card
+mat-card {
+  background-color: $card-bg-color;
+  border-radius: 8px;
+  box-shadow: $card-shadow;
+  padding: 16px;
+
+  mat-card-header {
+    background-color: $success-bg-color;
+    color: $success-text-color;
+    border-bottom: 1px solid $input-border-color;
+
+    mat-card-title {
+      font-size: 18px;
+      font-weight: 800;
+    }
+  }
+
+  mat-card-content {
+    margin-top: 8px;
+  }
+}
+
+// Form Fields
+mat-form-field {
+  display: block;
+  margin-bottom: 2px;
+  width: 100%;
+
+  mat-label {
+    font-weight: 500;
+  }
+
+  .mat-form-field-flex {
+    background-color: $input-bg-color;
+    border: 1px solid $input-border-color;
+    border-radius: 4px;
+  }
+
+  .mat-form-field-underline {
+    display: none;
+  }
+
+  mat-error {
+    color: $error-text-color;
+    font-size: 12px;
+  }
+}
+
+// Buttons
+button {
+  background-color: $button-bg-color;
+  color: $button-text-color;
+  border-radius: 4px;
+  margin-top: 16px;
+  padding: 10px 20px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $button-bg-hover-color;
+  }
+
+  &.mat-raised-button {
+    border-radius: 4px;
+  }
+}
+
+// File Input
+#profileImage {
+  display: block;
+  margin-top: 16px;
+}
+
+// Profile Image Preview
+.profile-image-preview {
+  margin-top: 16px;
+  border-radius: 50%;
+  border: $profile-image-border;
+  width: $profile-image-size;
+  height: $profile-image-size;
+  object-fit: cover;
+  display: block;
+}
+
+// Responsive Styling
+@media (max-width: 600px) {
+  mat-card {
+    padding: 8px;
+  }
+
+  button {
+    width: 100%;
+  }
+}

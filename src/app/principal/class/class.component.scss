@@ -1,0 +1,69 @@
+.class-manager {
+    padding: 20px;
+    input {
+      margin-right: 10px;
+    }
+    button {
+      margin-left: 10px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      li {
+        display: flex;
+        align-items: center;
+        margin: 5px 0;
+        button {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+  
+
+   // Table Styling
+   .classes-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+
+    // Header Styling
+    th.mat-header-cell {
+      background-color: #f4f4f4;
+      color: #333;
+      font-weight: bold;
+      padding: 12px;
+      text-align: left;
+      border-bottom: 2px solid #ddd;
+    }
+
+    // Cell Styling
+    td.mat-cell {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+
+      // Button Styling inside table cells
+      button {
+        color: #d32f2f;
+        &:hover {
+          background-color: #f5f5f5;
+        }
+      }
+    }
+
+    // Zebra striping for rows
+    tr:nth-child(odd) {
+      background-color: #f9f9f9;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fff;
+    }
+
+    // Hover effect for rows
+    tr:hover {
+      background-color: #e0e0e0;
+    }
+  
+  }

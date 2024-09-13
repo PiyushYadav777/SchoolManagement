@@ -1,0 +1,140 @@
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 16px;
+  }
+  mat-form-field {
+    width: 100%;
+  }
+  
+
+  
+// Import Angular Material theming functions and mixins
+@import '~@angular/material/theming';
+
+// Define custom colors for gradient and form elements
+$gradient-start: #ee7724;
+$gradient-middle: #d8363a;
+$gradient-end: #b44593;
+$form-bg-color: #eee;
+$btn-primary-bg: #ee7724;
+$btn-primary-color: white;
+$btn-secondary-color: #6c757d;
+
+// Include Angular Material core styles
+@include mat-core();
+
+// Define Angular Material theme (optional, based on your requirements)
+$primary: mat-palette($mat-blue);
+$accent: mat-palette($mat-pink, A200, A100, A400);
+$warn: mat-palette($mat-red);
+$theme: mat-light-theme($primary, $accent, $warn);
+
+// Apply Angular Material theme
+@include angular-material-theme($theme);
+
+// Main section styles
+.gradient-form {
+  background-color: $form-bg-color;
+  height: 100vh; // Full height of viewport
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .card {
+    border-radius: 0.3rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+
+  .card-body {
+    padding: 2rem;
+    max-width: 500px;
+    margin: auto;
+  }
+
+  .logo-img {
+    width: 185px;
+    margin-bottom: 1rem;
+  }
+
+  .form-outline {
+    margin-bottom: 1.5rem;
+
+    .mat-form-field {
+      width: 100%;
+      
+      .mat-form-field-label {
+        color: $btn-secondary-color; // Label color
+      }
+
+      .mat-form-field-underline {
+        background-color: $btn-secondary-color; // Underline color
+      }
+
+      .mat-form-field-ripple {
+        background-color: $btn-secondary-color; // Ripple color
+      }
+
+      mat-error {
+        color: $btn-primary-bg; // Error color
+      }
+    }
+  }
+
+  .btn-login {
+    width: 100%;
+    background: linear-gradient(to right, $gradient-start, $gradient-middle, $gradient-end);
+    color: $btn-primary-color;
+    margin-bottom: 1rem;
+    text-transform: none;
+    font-size: 1rem;
+    border-radius: 0.3rem;
+  }
+
+  .btn-create {
+    width: 100%;
+    border-radius: 0.3rem;
+    text-transform: none;
+    font-size: 1rem;
+  }
+
+  .text-muted {
+    color: $btn-secondary-color; // Muted text color
+  }
+
+  .text-center {
+    margin-bottom: 1.5rem;
+  }
+
+  .d-flex {
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+  }
+}
+
+// Gradient background for the right side
+.gradient-custom-2 {
+  background: linear-gradient(to right, $gradient-start, $gradient-middle, $gradient-end);
+  border-top-right-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+}
+
+// Responsive adjustments
+@media (min-width: 768px) {
+  .gradient-form {
+    height: 100vh;
+  }
+}
+
+@media (min-width: 769px) {
+  .gradient-custom-2 {
+    border-top-right-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+  }
+}

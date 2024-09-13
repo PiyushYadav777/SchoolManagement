@@ -1,0 +1,38 @@
+// mat-toolbar {
+//     background-color: #3f51b5; // Primary color
+//     color: white;
+    
+//     mat-toolbar-row {
+//       display: flex;
+//       justify-content: space-between;
+//       align-items: center;
+//       padding: 0 16px; // Add some horizontal padding
+  
+//       span:first-of-type {
+//         flex: 5;
+//         text-align: center;
+//         font-size: 1.5em; // Adjust font size as needed
+//         font-weight: bold; // Optional: make the title bold
+//       }
+      
+//       .spacer {
+//         flex: 1 1 auto; // This pushes the content to the left and right ends
+//       }
+      
+//       // Add styles for any additional elements, if needed
+//     }
+//   }
+  
+mat-toolbar {
+    background-color: #3f51b5; // Primary color
+    color: white;
+    .mat-toolbar-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .spacer {
+      flex: 1;
+    }
+  }
+  

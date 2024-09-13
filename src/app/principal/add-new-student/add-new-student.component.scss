@@ -1,0 +1,252 @@
+// .profile-image-preview {
+//     max-width: 100px;
+//     max-height: 100px;
+//     display: block;
+//     margin-top: 10px;
+//   }
+
+//   .profile-image {
+//     width: 50px;
+//     height: 50px;
+//     object-fit: cover;
+//   }
+
+// // Styling for the form container
+// form {
+//   display: flex;
+//   justify-content: center;
+//   padding: 20px;
+// }
+
+// // Mat-card styling for a better look
+// mat-card {
+//   max-width: 600px;
+//   width: 100%;
+//   padding: 16px;
+//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+// }
+
+// // Title styling
+// mat-card-title {
+//   font-size: 24px;
+//   font-weight: bold;
+// }
+
+// // Form field styling
+// mat-form-field {
+//   width: 100%;
+//   margin-bottom: 16px;
+// }
+
+// // Error message styling
+// mat-error {
+//   font-size: 12px;
+//   color: #d32f2f;
+// }
+
+// Profile image preview styling
+// .profile-image-preview {
+//   max-width: 100%;
+//   height: auto;
+//   margin-top: 10px;
+//   border: 1px solid #ddd;
+//   border-radius: 4px;
+// }
+
+// // Submit button styling
+// button {
+//   margin-top: 20px;
+//   width: 100%;
+// }
+
+// Import Angular Material theming functions and mixins
+@import '~@angular/material/theming';
+
+// Define custom colors and gradients
+$primary-color: #007bff; // Primary color for buttons and highlights
+$accent-color: #e83e8c; // Accent color for highlights
+$background-color: #f0f2f5; // Light background color for the page
+$card-bg-color: #ffffff; // Card background color
+$error-color: #dc3545; // Error color for form validation
+$success-color: #28a745; // Success color for validation
+$gradient-color-1: #4e54c8; // Gradient start color
+$gradient-color-2: #8f94fb; // Gradient end color
+
+// Include Angular Material core styles
+@include mat-core();
+
+// Define Angular Material theme
+$primary: mat-palette($mat-blue, 700);
+$accent: mat-palette($mat-pink, 500);
+$warn: mat-palette($mat-red);
+$theme: mat-light-theme($primary, $accent, $warn);
+
+// Apply Angular Material theme
+@include angular-material-theme($theme);
+
+// Main container styles
+form {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding: 2rem;
+  background: $background-color;
+  // min-height: 100vh;
+
+  .mat-card {
+    width: 100%;
+    max-width: 800px; // Adjusted for more space
+    background: $card-bg-color;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
+
+    // Gradient border
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, $gradient-color-1, $gradient-color-2);
+      z-index: -1;
+      filter: blur(15px);
+      transform: scale(1.1);
+    }
+  }
+
+  .mat-card-header {
+    background: $primary-color;
+    color: #ffffff;
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 2px solid darken($primary-color, 10%);
+
+    .mat-card-title {
+      font-size: 1.75rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  .mat-card-content {
+    padding: 2rem;
+  }
+
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; // Adjust gap between fields
+
+    .form-field {
+      flex: 1 1 calc(50% - 1rem); // Two columns layout
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .mat-form-field {
+    width: 100%;
+
+    .mat-form-field-label {
+      color: $primary-color;
+      font-weight: 500;
+    }
+
+    .mat-form-field-underline {
+      background-color: $primary-color;
+    }
+
+    .mat-form-field-ripple {
+      background-color: $primary-color;
+    }
+
+    .mat-error {
+      color: $error-color;
+    }
+
+    .mat-form-field-infix {
+      border-radius: 4px;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  button {
+    width: 100%;
+    background-color: $primary-color;
+    color: #ffffff;
+    font-size: 1rem;
+    padding: 0.75rem;
+    text-transform: uppercase;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  .mat-spinner {
+    margin: 2rem auto;
+    display: block;
+    color: $primary-color;
+  }
+
+  // Add responsive design adjustments
+  @media (max-width: 600px) {
+    .mat-card {
+      margin: 1rem;
+    }
+
+    .form-row {
+      flex-direction: column;
+      .form-field {
+        flex: 1 1 100%;
+      }
+    }
+  }
+}
+
+// Additional form field-specific styling
+.mat-form-field {
+  .mat-form-field-infix {
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+  }
+}
+
+// Styling for file input
+input[type='file'] {
+  display: block;
+  margin: 1rem 0;
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  border-radius: 4px;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+input[type='file']::file-selector-button {
+  background-color: $primary-color;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.profile-image-preview {
+  max-width: 100px; // Size of the preview image
+  max-height: 100px; // Maintain aspect ratio
+  border-radius: 8px;
+  margin: 1rem 0;
+  display: block;
+  object-fit: cover;
+  border: 2px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

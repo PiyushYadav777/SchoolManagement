@@ -1,0 +1,10 @@
+<app-header></app-header>
+<!-- {{authService.isAuthenticated()  | json}} -->
+<div class="sidenav-body">
+<app-sidenav *ngIf="authService.isAuthenticated()" class="sidenav1"></app-sidenav>
+<div class="body-content">
+    <router-outlet></router-outlet>
+</div>
+
+</div>
+<app-footer class="footer"></app-footer>

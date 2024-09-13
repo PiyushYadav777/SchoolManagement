@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>Student Details</h2>
+<mat-dialog-content>
+    <div class="dialog-content">
+        <img *ngIf="data.student.image" [src]="data.student.image" alt="Profile Image" class="profile-image" />
+        <div class="student-details">
+            <p><strong>ID:</strong> {{ data.student.id }}</p>
+            <p><strong>Name:</strong> {{ data.student.name }}</p>
+            <p><strong>Email:</strong> {{ data.student.email }}</p>
+            <p><strong>Date of Birth:</strong> {{ data.student.dob | date }}</p>
+            <p><strong>Age:</strong> {{ data.student.age }}</p>
+            <p><strong>Gender:</strong> {{ data.student.gender }}</p>
+            <p><strong>Class:</strong> {{ data.student.class }}</p>
+            <p><strong>Enrollment Number:</strong> {{ data.student.enrollmentNumber }}</p>
+            <p><strong>Address:</strong> {{ data.student.address }}</p>
+            <p><strong>Contact Number:</strong> {{ data.student.contactNo }}</p>
+            <p><strong>Fees:</strong> {{ data.student.fees }}</p>
+            <p><strong>Status:</strong> {{ data.student.status }}</p>
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

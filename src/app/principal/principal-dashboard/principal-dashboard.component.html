@@ -1,0 +1,45 @@
+<div class="dashboard">
+  <header class="dashboard-header">
+    <img src="assets/vecteezy_school-logo-design-template-vector_8040272.jpg" alt="School Logo" class="school-logo" />
+    <h1 class="school-name">ABC High School</h1>
+  </header>
+  
+  <div class="stats">
+    <mat-card class="stat-card total-students">
+      <mat-card-header>
+        <mat-icon>school</mat-icon>
+        <mat-card-title>Total Students</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ studentCount }}</p>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="stat-card total-teachers">
+      <mat-card-header>
+        <mat-icon>people</mat-icon>
+        <mat-card-title>Total Teachers</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ teacherCount }}</p>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="stat-card total-subjects">
+      <mat-card-header>
+        <mat-icon>book</mat-icon>
+        <mat-card-title>Total Subjects</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ subjectCount }}</p>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="stat-card total-classes">
+      <mat-card-header>
+        <mat-icon>class</mat-icon>
+        <mat-card-title>Total Classes</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ classCount }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+
+<div class="class-manager">
+  <h2>Manage Classes</h2>
+  
+  <!-- Toggle Button -->
+  <button mat-raised-button color="primary" (click)="toggleForm()">
+    {{ showForm ? 'Hide New Class Form' : 'Add New Class' }}
+  </button>
+  
+  <!-- New Class Form (Toggle Visibility) -->
+  <div *ngIf="showForm">
+    <mat-form-field appearance="fill">
+      <mat-label>New Class</mat-label>
+      <input matInput [(ngModel)]="newClass" placeholder="Enter new class" />
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="addClass()">Add Class</button>
+  </div>
+  
+  <!-- Classes Table -->
+  <table mat-table [dataSource]="classes" class="classes-table">
+    <ng-container matColumnDef="serial">
+      <th mat-header-cell *matHeaderCellDef> Serial </th>
+      <td mat-cell *matCellDef="let element; let i = index"> {{i + 1}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="class">
+      <th mat-header-cell *matHeaderCellDef> Class Name </th>
+      <td mat-cell *matCellDef="let element"> {{element}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button (click)="deleteClass(element)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
